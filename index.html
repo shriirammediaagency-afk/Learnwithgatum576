@@ -1,106 +1,524 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Learn Stock Market – Free Sessions</title>
-  <meta name="description" content="100% free stock market education. Learn chart reading, technical analysis, and risk management. No buy/sell tips. For learning purpose only.">
-  <link rel="canonical" href="https://example.com/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gautam Kumar Jha - Stock Market Education &amp; Chart Analysis</title>
 
-  <!-- Performance -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Meta Pixel Code (Initialized Only - Fires on Verified Human Activity) -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1167263652305500');
+  </script>
+  <!-- End Meta Pixel Code -->
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Cinzel + Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serifTitle: ['Cinzel', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            gold: {
+              300: '#FDE047',
+              400: '#FACC15',
+              500: '#F5B014',
+              600: '#D97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
 
-  <!-- Favicons (optional) -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Learn Stock Market – Free Sessions">
-  <meta property="og:description" content="Learn charts & risk management. No buy/sell tips. 100% educational.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://example.com/">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop">
-
-  <!-- Minimal CSS (inline for speed) -->
   <style>
-    :root{
-      --bg1:#0c0c1d;
-      --bg2:#1a1a2b;
-      --brand: #00ff99;
-      --brand-2:#00f0ff;
-      --text:#ffffff;
-      --muted:#b5b5c3;
+    body {
+      background-color: #070b13;
+      background-image: 
+        radial-gradient(ellipse 80% 280px at 50% 0px, rgba(245, 176, 20, 0.10) 0%, transparent 75%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 100% 100%, 28px 28px, 28px 28px;
+      color: #e2e8f0;
+      -webkit-font-smoothing: antialiased;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{
-      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background:
-        linear-gradient(135deg, rgba(0,0,0,.45), rgba(0,0,0,.45)),
-        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop') no-repeat center/cover fixed;
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-      min-height:100vh;
+
+    .card-surface {
+      border: 1px solid rgba(245, 176, 20, 0.22);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.04);
     }
-    .container{
-      max-width:520px; margin:0 auto; padding:24px 18px; text-align:center; min-height:100vh; display:flex; flex-direction:column; justify-content:center;
-      backdrop-filter: saturate(130%);
+
+    .pill-subtle {
+      border: 1px solid rgba(245, 176, 20, 0.28);
     }
-    .badge{display:inline-block; font-size:.78rem; padding:6px 10px; border:1px solid #2a2a3a; border-radius:999px; color:#d6eaff; background:rgba(0,240,255,.08); margin-bottom:14px}
-    h1{font-size:1.9rem; line-height:1.2; margin:6px 0 10px; background:linear-gradient(90deg,var(--brand-2),var(--brand)); -webkit-background-clip:text; background-clip:text; color:transparent;}
-    .sub{font-size:1rem; color:var(--muted); margin:0 auto 16px; max-width:36ch}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:rgba(0,255,153,.07); border:1px dashed rgba(0,255,153,.35); color:#d8ffe9; font-size:.9rem; margin:6px 0 18px;
+
+    .avatar-ring {
+      box-shadow: 0 0 20px rgba(245, 176, 20, 0.35);
     }
-    ul.bullets{list-style:none; padding:0; margin:0 0 18px}
-    ul.bullets li{margin:8px 0; color:#e9eef9}
-    .cta{
-      display:inline-block; text-decoration:none; background:var(--brand); color:#041b14; padding:14px 18px; font-weight:700; border-radius:12px; box-shadow:0 0 0 0 rgba(0,255,153,.6); transform:translateZ(0);
-      transition:transform .15s ease;
-      animation:pulse 1.6s infinite;
+
+    .cta-btn {
+      background: linear-gradient(135deg, #FACC15 0%, #F59E0B 100%);
+      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
-    .cta:active{transform:scale(.98)}
-    @keyframes pulse{
-      0%{box-shadow:0 0 0 0 rgba(0,255,153,.55)}
-      70%{box-shadow:0 0 0 20px rgba(0,255,153,0)}
-      100%{box-shadow:0 0 0 0 rgba(0,255,153,0)}
+    .cta-btn:hover {
+      box-shadow: 0 6px 26px rgba(245, 158, 11, 0.5);
+      transform: translateY(-1px);
     }
-    .fineprint{font-size:.86rem; color:var(--muted); margin:18px auto 0; max-width:44ch}
-    .disclaimer{font-size:.78rem; color:#9aa4b2; margin:18px auto 0; max-width:50ch}
-    .safe{display:flex; align-items:center; justify-content:center; gap:8px; margin-top:14px; color:#a1ffd6; font-size:.9rem}
-    .shield{width:18px; height:18px; display:inline-block; border-radius:4px; background:linear-gradient(135deg,#0df,#0f9)}
-    footer{opacity:.8; margin-top:22px; font-size:.78rem; color:#9aa4b2}
+    .cta-btn:active {
+      transform: scale(0.985);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.28s ease, opacity 0.2s ease, padding 0.2s ease;
+    }
+    .faq-answer.open {
+      max-height: 140px;
+      opacity: 1;
+      padding-bottom: 10px;
+      padding-top: 4px;
+    }
   </style>
 </head>
-<body>
-  <main class="container">
-    <span class="badge">100% Educational • Policy Safe</span>
-    <h1>Learn Stock Market – Free Sessions</h1>
-    <p class="sub">Learn index behaviour & risk management</p>
+<body class="min-h-screen flex flex-col items-center justify-start px-3 py-3">
 
-    <div class="pill">🚫 No Buy/Sell Tips • ✅ For Learning Purpose Only</div>
+  <!-- Compact Clean Container -->
+  <main class="w-full max-w-[390px] flex flex-col gap-2 relative pb-6">
 
-    <ul class="bullets" aria-label="What you'll learn">
-      <li>• Chart basics & risk rules (no return promises)</li>
-      <li>• How to read trends without speculation</li>
-      <li>• Market discipline & common mistakes</li>
-    </ul>
+    <!-- TOP HEADER BAR -->
+    <header class="w-full bg-[#0c1322]/90 backdrop-blur-md pill-subtle rounded-full px-3.5 py-1.5 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+        <span class="text-[10.5px] font-bold tracking-wider text-slate-200 uppercase">
+          EDUCATIONAL LEARNING DESK
+        </span>
+      </div>
 
-    <!-- CTA goes to a page-specific bridge -->
-    <a class="cta" href="bridge-lp14.html" rel="nofollow">Start Learning</a>
+      <span class="bg-emerald-950/80 border border-emerald-500/40 rounded-full px-2.5 py-0.5 text-[9.5px] font-semibold text-emerald-400">
+        100% Free Access
+      </span>
+    </header>
 
-    <div class="safe"><span class="shield" aria-hidden="true"></span> Ad Policy Friendly Content</div>
+    <!-- TIMER BAR (Visual Redirect Only - Zero Pixel Tracking on Timer) -->
+    <section aria-label="Community Access Timer" class="w-full bg-[#0c1322]/90 backdrop-blur-md pill-subtle rounded-xl px-3.5 py-2 flex items-center justify-between">
+      <div>
+        <div class="text-[9.5px] font-bold tracking-wider text-gold-400 uppercase leading-none">
+          OPEN LEARNING COMMUNITY
+        </div>
+        <div class="text-[11px] font-medium text-slate-300 mt-1 leading-none">
+          Redirecting to Telegram in <span id="redirectTimerText" class="text-gold-400 font-bold">10s</span>
+        </div>
+      </div>
 
-    <p class="fineprint">We focus on concepts & frameworks suitable for beginners.</p>
-    <p class="disclaimer"><em>This website is for educational purposes only. We do not provide investment, trading, or financial advice.</em></p>
+      <div class="bg-[#070b13] border border-gold-500/40 rounded-full px-2.5 py-1 flex items-center gap-1.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="font-mono text-[11px] font-bold tracking-wider text-gold-300">00:<span id="redirectBadgeCount">10</span></span>
+      </div>
+    </section>
 
-    <footer>© <span id="y"></span> Market Basics Learning Hub</footer>
+    <!-- MAIN PROFILE & VALUE CARD -->
+    <section class="w-full bg-[#0c1322]/95 backdrop-blur-xl card-surface rounded-2xl p-4 flex flex-col items-center text-center relative">
+      
+      <!-- Profile Image -->
+      <div class="relative mt-0.5 mb-2.5">
+        <div class="w-20 h-20 rounded-full p-[2px] bg-gradient-to-tr from-amber-300 via-gold-500 to-amber-600 avatar-ring">
+          <div class="w-full h-full rounded-full overflow-hidden bg-slate-900 border-2 border-[#0c1322]">
+            <img 
+              src="Gautam01.jpeg" 
+              alt="Gautam Kumar Jha - Market Educator" 
+              class="w-full h-full object-cover object-top"
+            >
+          </div>
+        </div>
+
+        <!-- Verified Badge -->
+        <div class="absolute bottom-0 right-0 bg-emerald-500 text-slate-950 rounded-full p-0.5 border-2 border-[#0c1322]" title="Verified Educator Profile">
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Educator Name -->
+      <h1 class="text-xl font-extrabold tracking-wide text-white font-serifTitle uppercase leading-tight">
+        GAUTAM KUMAR JHA
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-gold-400 text-xs font-medium mt-1">
+        Stock Market Education &amp; Technical Chart Analysis
+      </p>
+
+      <!-- Clear Educational Description -->
+      <p class="text-slate-300 text-[12px] leading-relaxed mt-2.5 px-1">
+        Learn structured chart reading, market psychology, and disciplined risk management. Access daily <strong class="text-white font-semibold">Nifty &amp; Bank Nifty Price Action case studies</strong> and support/resistance concepts on Telegram.
+      </p>
+
+      <!-- 2x2 CLEAN LEARNING PILLARS -->
+      <div class="grid grid-cols-2 gap-2 w-full mt-3.5 text-left">
+        
+        <div class="bg-[#090e18] border border-slate-800 rounded-xl p-2.5 flex items-center gap-2">
+          <div class="w-7 h-7 rounded-lg bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-gold-400 shrink-0">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-slate-100 font-semibold text-[11.5px] leading-tight">Chart Study</div>
+            <div class="text-slate-400 text-[10px]">Price Action Basics</div>
+          </div>
+        </div>
+
+        <div class="bg-[#090e18] border border-slate-800 rounded-xl p-2.5 flex items-center gap-2">
+          <div class="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-400 shrink-0">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-slate-100 font-semibold text-[11.5px] leading-tight">Risk Management</div>
+            <div class="text-slate-400 text-[10px]">Capital Discipline</div>
+          </div>
+        </div>
+
+        <div class="bg-[#090e18] border border-slate-800 rounded-xl p-2.5 flex items-center gap-2">
+          <div class="w-7 h-7 rounded-lg bg-sky-500/10 border border-sky-500/25 flex items-center justify-center text-sky-400 shrink-0">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-slate-100 font-semibold text-[11.5px] leading-tight">Market Structure</div>
+            <div class="text-slate-400 text-[10px]">Support &amp; Resistance</div>
+          </div>
+        </div>
+
+        <div class="bg-[#090e18] border border-slate-800 rounded-xl p-2.5 flex items-center gap-2">
+          <div class="w-7 h-7 rounded-lg bg-purple-500/10 border border-purple-500/25 flex items-center justify-center text-purple-400 shrink-0">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-slate-100 font-semibold text-[11.5px] leading-tight">Trading Mindset</div>
+            <div class="text-slate-400 text-[10px]">Beginner Friendly</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Hidden Honeypot Link (Bot Trap) -->
+      <a href="#bot-trap" id="botTrapLink" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;">Join Now</a>
+
+      <!-- CTA BUTTON (Tracking Fires ONLY on Verified Click) -->
+      <a 
+        id="mainTelegramCta"
+        href="https://t.me/+Aq95pEkdyY1lZjY1" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        onclick="return handleVerifiedCtaClick(event);"
+        class="mt-4 w-full py-3.5 px-4 rounded-xl cta-btn text-slate-950 font-sans font-bold tracking-wide text-sm flex items-center justify-center gap-2 select-none cursor-pointer"
+      >
+        <svg class="w-4 h-4 text-slate-950 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+          <path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l-.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.436z"/>
+        </svg>
+        <span class="uppercase">JOIN TELEGRAM CHANNEL</span>
+      </a>
+
+      <!-- Trust Indicators -->
+      <div class="flex items-center justify-center gap-3 mt-2.5 text-[10.5px] font-medium text-slate-400">
+        <span class="flex items-center gap-1 text-emerald-400">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+          </svg>
+          Educational Updates Only
+        </span>
+        <span class="text-slate-700">•</span>
+        <span class="text-slate-300">No Paid Tips or Advisory</span>
+      </div>
+
+    </section>
+
+    <!-- CLEAN FAQ SECTION -->
+    <section class="w-full bg-[#0c1322]/90 backdrop-blur-md card-surface rounded-2xl p-3.5">
+      <h2 class="text-[11px] font-bold tracking-wider text-slate-200 uppercase mb-2 px-0.5">
+        Frequently Asked Questions
+      </h2>
+
+      <div class="space-y-1.5">
+
+        <div class="border border-slate-800 rounded-lg bg-[#090e18] overflow-hidden">
+          <button type="button" class="w-full px-3 py-2 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+            <span class="text-[11.5px] font-medium text-slate-100 pr-2">Is there any fee to join this Telegram channel?</span>
+            <svg class="faq-icon w-3.5 h-3.5 text-slate-400 transform transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+            </svg>
+          </button>
+          <div class="faq-answer px-3 text-slate-400 text-[11px] leading-relaxed border-t border-slate-800/60">
+            No, joining this Telegram channel is completely free. We share educational chart studies and market structure concepts without any paid subscription plans.
+          </div>
+        </div>
+
+        <div class="border border-slate-800 rounded-lg bg-[#090e18] overflow-hidden">
+          <button type="button" class="w-full px-3 py-2 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+            <span class="text-[11.5px] font-medium text-slate-100 pr-2">Is this community suitable for beginners?</span>
+            <svg class="faq-icon w-3.5 h-3.5 text-slate-400 transform transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+            </svg>
+          </button>
+          <div class="faq-answer px-3 text-slate-400 text-[11px] leading-relaxed border-t border-slate-800/60">
+            Yes. Core price action concepts, support and resistance levels, and risk management principles are explained clearly for learners at all levels.
+          </div>
+        </div>
+
+        <div class="border border-slate-800 rounded-lg bg-[#090e18] overflow-hidden">
+          <button type="button" class="w-full px-3 py-2 flex items-center justify-between text-left focus:outline-none" onclick="toggleAccordion(this)">
+            <span class="text-[11.5px] font-medium text-slate-100 pr-2">Are you a SEBI-registered investment advisor?</span>
+            <svg class="faq-icon w-3.5 h-3.5 text-slate-400 transform transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+            </svg>
+          </button>
+          <div class="faq-answer px-3 text-slate-400 text-[11px] leading-relaxed border-t border-slate-800/60">
+            No. We are not SEBI-registered research analysts or investment advisors. All content shared is strictly for educational purposes and does not constitute buy or sell recommendations.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TRANSPARENT COMPLIANCE & TRUST FOOTER -->
+    <footer class="w-full pt-0.5 flex flex-col items-center text-center space-y-2.5">
+      
+      <!-- SEBI Compliance & Risk Notice -->
+      <div class="bg-[#090e18] border border-slate-800 rounded-xl p-2.5 text-left">
+        <p class="text-[10px] leading-relaxed text-slate-400">
+          <strong class="text-slate-200 font-semibold">SEBI Compliance &amp; Risk Disclosure:</strong> This Telegram community is strictly for <strong class="text-slate-200 font-medium">Educational &amp; Informational Purposes Only</strong>. We are NOT SEBI-registered Research Analysts or Investment Advisors. We do not provide investment advice, stock tips, or guaranteed returns. Trading and investing in securities involve substantial market risk. Consult a SEBI-registered financial advisor before making any investment decisions.
+        </p>
+      </div>
+
+      <!-- Meta Platforms Disclaimer -->
+      <p class="text-[9.5px] leading-snug text-slate-500 px-2">
+        This website is not a part of the Facebook website or Meta Platforms, Inc. Additionally, this site is NOT endorsed by Meta in any way. FACEBOOK is a trademark of Meta Platforms, Inc.
+      </p>
+
+      <!-- Legal Links with Modal Trigger -->
+      <div class="flex items-center justify-center gap-2.5 text-[11px] text-slate-400">
+        <button type="button" onclick="openPolicyModal('privacy')" class="hover:text-gold-400 transition underline-offset-4 hover:underline">Privacy Policy</button>
+        <span class="text-slate-700">•</span>
+        <button type="button" onclick="openPolicyModal('terms')" class="hover:text-gold-400 transition underline-offset-4 hover:underline">Terms of Service</button>
+        <span class="text-slate-700">•</span>
+        <button type="button" onclick="openPolicyModal('disclaimer')" class="hover:text-gold-400 transition underline-offset-4 hover:underline">Disclaimer</button>
+        <span class="text-slate-700">•</span>
+        <button type="button" onclick="openPolicyModal('contact')" class="hover:text-gold-400 transition underline-offset-4 hover:underline">Contact</button>
+      </div>
+
+      <!-- Agency & Copyright -->
+      <div class="text-[10px] text-slate-500 leading-relaxed">
+        <div>Digital Marketing Managed by <span class="text-slate-400 font-medium">Adzinox Private Limited</span></div>
+        <div>© 2026 Gautam Kumar Jha. All rights reserved.</div>
+      </div>
+
+    </footer>
+
   </main>
 
+  <!-- Interactive Modal for Legal Links -->
+  <div id="policyModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#0c1322] border border-slate-700 rounded-2xl max-w-sm w-full p-4 shadow-2xl relative">
+      <div class="flex items-center justify-between pb-2.5 border-b border-slate-800">
+        <h3 id="modalHeading" class="text-xs font-bold text-white uppercase tracking-wide">Policy Document</h3>
+        <button type="button" onclick="closePolicyModal()" class="text-slate-400 hover:text-white">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div id="modalDescription" class="text-slate-300 text-[11.5px] leading-relaxed py-3 space-y-2">
+        <!-- Content added via JavaScript -->
+      </div>
+      <div class="pt-2 border-t border-slate-800 flex justify-end">
+        <button type="button" onclick="closePolicyModal()" class="px-3.5 py-1.5 bg-gold-500 text-slate-950 font-semibold rounded-lg text-[11px] hover:bg-gold-400 transition">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    // ==========================================
+    // 1. REAL HUMAN & BOT DETECTOR (CLICK-ONLY TRACKING)
+    // ==========================================
+    const pageLoadTime = Date.now();
+    let humanSignals = 0;
+    let isBotFlagged = false;
+    let leadAlreadyTracked = false;
+    let pageViewTracked = false;
+
+    // Bot / Crawler / Headless Browser Check
+    if (
+      navigator.webdriver ||
+      !navigator.languages ||
+      navigator.languages.length === 0 ||
+      /HeadlessChrome|PhantomJS|SlimerJS|bot|crawler|spider|preview|facebookexternalhit|Facebot/i.test(navigator.userAgent)
+    ) {
+      isBotFlagged = true;
+    }
+
+    // Real Human Activity Listener
+    function recordHumanActivity(e) {
+      if (e && e.isTrusted) {
+        humanSignals++;
+        if (!isBotFlagged && !pageViewTracked && typeof fbq === 'function') {
+          fbq('track', 'PageView');
+          pageViewTracked = true;
+        }
+      }
+    }
+
+    window.addEventListener('touchstart', recordHumanActivity, { passive: true });
+    window.addEventListener('pointerdown', recordHumanActivity, { passive: true });
+    window.addEventListener('mousemove', recordHumanActivity, { passive: true });
+    window.addEventListener('scroll', recordHumanActivity, { passive: true });
+
+    // Hidden Honeypot Trap for Bots
+    const botTrap = document.getElementById('botTrapLink');
+    if (botTrap) {
+      botTrap.addEventListener('click', function(e) {
+        e.preventDefault();
+        isBotFlagged = true;
+      });
+    }
+
+    // Verify Genuine Human Click before firing Lead event
+    function isGenuineHumanClick(event) {
+      const timeOnPageMs = Date.now() - pageLoadTime;
+
+      if (isBotFlagged) return false;
+      if (!event || event.isTrusted === false) return false;
+      if (timeOnPageMs < 1200) return false;
+
+      const hasValidPointer = (event.clientX > 0 || event.clientY > 0 || event.pointerType === 'touch');
+      if (!hasValidPointer && humanSignals < 1) return false;
+
+      return true;
+    }
+
+    function handleVerifiedCtaClick(event) {
+      if (isGenuineHumanClick(event)) {
+        if (!leadAlreadyTracked && typeof fbq === 'function') {
+          if (!pageViewTracked) {
+            fbq('track', 'PageView');
+            pageViewTracked = true;
+          }
+          fbq('track', 'Lead');
+          leadAlreadyTracked = true;
+        }
+      } else {
+        console.warn('Fake/Bot click blocked from Meta Pixel tracking.');
+      }
+      return true;
+    }
+
+    // ==========================================
+    // 2. 10-SECOND REDIRECT TIMER (NO PIXEL TRACKING)
+    // ==========================================
+    const telegramRedirectUrl = "https://t.me/+Aq95pEkdyY1lZjY1";
+    let secondsRemaining = 10;
+
+    const timerTextEl = document.getElementById('redirectTimerText');
+    const badgeCountEl = document.getElementById('redirectBadgeCount');
+
+    const redirectInterval = setInterval(() => {
+      secondsRemaining--;
+      if (secondsRemaining > 0) {
+        const formatted = secondsRemaining < 10 ? '0' + secondsRemaining : secondsRemaining;
+        if (timerTextEl) timerTextEl.textContent = secondsRemaining + 's';
+        if (badgeCountEl) badgeCountEl.textContent = formatted;
+      } else {
+        clearInterval(redirectInterval);
+        if (timerTextEl) timerTextEl.textContent = '0s';
+        if (badgeCountEl) badgeCountEl.textContent = '00';
+        
+        // Redirect directly WITHOUT firing any Meta Pixel event
+        window.location.href = telegramRedirectUrl;
+      }
+    }, 1000);
+
+    // ==========================================
+    // 3. ACCORDION LOGIC
+    // ==========================================
+    function toggleAccordion(btn) {
+      const answer = btn.nextElementSibling;
+      const icon = btn.querySelector('.faq-icon');
+      const isAlreadyOpen = answer.classList.contains('open');
+
+      document.querySelectorAll('.faq-answer').forEach(el => el.classList.remove('open'));
+      document.querySelectorAll('.faq-icon').forEach(ic => ic.classList.remove('rotate-180'));
+
+      if (!isAlreadyOpen) {
+        answer.classList.add('open');
+        icon.classList.add('rotate-180');
+      }
+    }
+
+    // ==========================================
+    // 4. POLICY MODAL LOGIC
+    // ==========================================
+    const legalContents = {
+      privacy: {
+        title: "Privacy Policy",
+        desc: "We respect your privacy. This landing page uses standard analytics pixels (Meta Pixel) solely to measure advertising effectiveness. We do not collect, store, or sell personal or financial data on this website. Interactions on Telegram are governed by Telegram's Privacy Policy."
+      },
+      terms: {
+        title: "Terms of Service",
+        desc: "All educational materials, commentary, and chart studies shared within the Telegram community are meant strictly for personal learning and academic study. Users bear sole responsibility for their own financial decisions."
+      },
+      disclaimer: {
+        title: "Full Disclaimer & Risk Notice",
+        desc: "Gautam Kumar Jha and affiliated operators are NOT registered with SEBI under SEBI (Research Analysts) Regulations, 2014 or SEBI (Investment Advisers) Regulations, 2013. Stock market trading entails substantial risk of capital loss."
+      },
+      contact: {
+        title: "Contact & Page Management",
+        desc: "This educational landing page is managed by Adzinox Private Limited. For campaign or compliance inquiries, reach out via digital@adzinox.com."
+      }
+    };
+
+    function openPolicyModal(type) {
+      const modal = document.getElementById('policyModal');
+      const heading = document.getElementById('modalHeading');
+      const desc = document.getElementById('modalDescription');
+
+      if (legalContents[type]) {
+        heading.textContent = legalContents[type].title;
+        desc.textContent = legalContents[type].desc;
+        modal.classList.remove('hidden');
+      }
+    }
+
+    function closePolicyModal() {
+      document.getElementById('policyModal').classList.add('hidden');
+    }
   </script>
+
 </body>
 </html>
